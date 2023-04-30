@@ -3,12 +3,12 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
-import { Tab2Screen } from '../screens/Tab2Screen';
 // import { Tab3Screen } from '../screens/Tab3Screen';
 import { StackNavigator } from './StackNavigator';
 import { colores } from '../theme/appTheme';
-import { Platform, Text } from 'react-native';
+import { Platform } from 'react-native';
 import { TopTabNavigator } from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
@@ -48,24 +48,24 @@ const TabsAndroid = ({  }) => {
         tabBarLabelStyle: {
           fontSize: 20,
         },
-        tabBarIcon: ({ color, focused, size }) => {
+        tabBarIcon: ( ) => {
           let iconname: string = '';
   
           switch (route.name) {
             case 'Tab1Screen':
-              iconname = 'T1';
+              iconname = 'bandage-outline';
               break;
             case 'TopTabNavigator':
-              iconname = 'T2';
+              iconname = 'basketball-outline';
               break;
             case 'StackNavigator':
-              iconname = 'St';
+              iconname = 'bookmarks-outline';
               break;
             default:
               break;
           }
   
-          return <Text style={{ color }}> { iconname}  </Text>
+          return <Icon name={ iconname } size={30} color={ colores.primary } />
         }
       })}
     >
@@ -97,24 +97,24 @@ const TabsIOS = () => {
       tabBarLabelStyle: {
         fontSize: 20,
       },
-      tabBarIcon: ({ color, focused, size }) => {
+      tabBarIcon: (  ) => {
         let iconname: string = '';
 
         switch (route.name) {
           case 'Tab1Screen':
-            iconname = 'T1';
+            iconname = 'bandage-outline';
             break;
           case 'Tab2Screen':
-            iconname = 'T2';
+            iconname = 'basketball-outline';
             break;
           case 'StackNavigator':
-            iconname = 'St';
+            iconname = 'bookmarks-outline';
             break;
           default:
             break;
         }
 
-        return <Text style={{ color }}> { iconname}  </Text>
+        return <Icon name={ iconname } size={30} color={ colores.primary } />
       }
     })}
     >
