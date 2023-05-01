@@ -9,6 +9,7 @@ import { DefaultTheme } from 'react-native-paper';
 // import { Tabs } from './src/navigator/Tabs';
 
 import { Provider as PaperProvider } from 'react-native-paper';
+import { AuthProvider } from './src/context/AuthContext';
 
 
 const theme = {
@@ -18,14 +19,24 @@ const theme = {
 const App = () => {
   return (
     <PaperProvider theme={theme}>
-      <NavigationContainer>
-        {/* <StackNavigator /> */}
-        {/* <MenuLateralBasico /> */}
-        <MenuLateral />
-        {/* <Tabs /> */}
-      </NavigationContainer>
+      <AppState>
+        <NavigationContainer>
+          {/* <StackNavigator /> */}
+          {/* <MenuLateralBasico /> */}
+          <MenuLateral />
+          {/* <Tabs /> */}
+        </NavigationContainer>
+      </AppState>
     </PaperProvider>
   );
 };
+
+const AppState = ({ children }: any ) => {
+  return (
+    <AuthProvider>
+      { children }
+    </AuthProvider>
+  )
+}
 
 export default App;
